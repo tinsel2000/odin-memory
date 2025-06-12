@@ -20,7 +20,7 @@ export default function App() {
   const [pokemons, setPokemons] = useState(initialPokemon)
   const [count, setCount] = useState(0)
   const [highScore, setHighScore] = useState(0)
-  const [winState, setWinState] = useState(null)
+  const [winState, setWinState] = useState('none')
   const [maximum, setMaximum] = useState(8)
   const [usedNumbers, setUsedNumbers] = useState([])
   const [cardsDisabled, setCardsDisabled] = useState(false)
@@ -35,7 +35,7 @@ export default function App() {
     while (usedNumbers.includes(num)) {
       num = getRandomInt(983);
     }
-    console.log(`Trying ${num}`);
+    //console.log(`Trying ${num}`);
     return num
   }
   
@@ -52,13 +52,13 @@ export default function App() {
           typeImage: data.types[0].sprite,
           clicked: false,
         });
-        console.log(data.types[0].type);
+        //console.log(data.types[0].type);
       }
       setPokemons(results)
     }
     fetchData();
     setCardsGotten(true);
-    console.log(cardsGotten);
+    //console.log(cardsGotten);
   }, [maximum, cardsGotten]);
 
   function handleClick(item) {
@@ -80,8 +80,9 @@ export default function App() {
       if (nextCount >= highScore) {setHighScore(nextCount)}
       const shuffle = pokemons => [...pokemons].sort(() => Math.random() - 0.5);
       setPokemons(shuffle);
-      if (nextCount >= 9) {
+      if (nextCount >= maximum) {
         //You Won
+        setCardsDisabled(true);
         setWinState('won');
       };
     }
@@ -89,13 +90,13 @@ export default function App() {
 
   function onSubmit(e) {
     e.preventDefault();
+    setWinState('none');
     const form = e.target;
     const userInputField = form.elements['setMaximum'];
-    console.log(Number(userInputField.value));
+    //console.log(Number(userInputField.value));
     setMaximum(Number(userInputField.value));
     setCardsGotten(false);
     setCardsDisabled(false);
-    console.log(cardsGotten);
   }
 
   return (

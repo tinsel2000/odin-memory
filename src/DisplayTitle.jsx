@@ -12,7 +12,7 @@ export default function DisplayTitle({
                 <div className="score-result">{
                     winState === 'won' ? 'Congratulations! You have a functional memory!' : 
                     winState === 'lost' ? 'Game Lost, try again?' : 
-                    'Test your memory! Click all the cards without repeating yourself to win'
+                    winState === 'none' ? 'Test your memory! Click all the cards without repeating yourself to win' : ''
                 }
                 </div>
                 <form 
