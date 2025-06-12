@@ -27,7 +27,6 @@ export default function DisplayPokemon({
                 <div className="pokemon-image-container">
                     <img className="pokemon-image" src={pokemon ? pokemon.imageSource : "Loading..."}></img>
                 </div>
-                <p>Clicked: {pokemon.clicked ? 'True' : 'False'} </p>
             </div>
             ))}
         </ul>

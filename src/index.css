@@ -129,12 +129,6 @@ button:focus-visible {
   width: 100%;
 }
 
-.pokemon-type-image-container {
-}
-
-.pokemon-type-image {
-}
-
 div[disabled]
 {
   pointer-events: none;

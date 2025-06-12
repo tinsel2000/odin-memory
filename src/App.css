@@ -2,7 +2,7 @@
   font-family: "GillSans Condensed Bold";
 }
 
-@font-face { font-family: "GillSans Condensed Bold"; src: url('./src/assets/fonts/GillSans Condensed Bold.otf'); } 
+@font-face { font-family: "GillSans Condensed Bold"; src: url('./assets/fonts/GillSans-Condensed-Bold.otf'); } 
 
 #root {
   max-width: 1280px;

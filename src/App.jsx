@@ -1,6 +1,4 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import getPokemon from './api.js'
 import DisplayPokemon from './DisplayPokemon.jsx'
@@ -22,7 +20,7 @@ export default function App() {
   const [highScore, setHighScore] = useState(0)
   const [winState, setWinState] = useState('none')
   const [maximum, setMaximum] = useState(8)
-  const [usedNumbers, setUsedNumbers] = useState([])
+  const [usedNumbers, setUsedNumbers] = useState([0])
   const [cardsDisabled, setCardsDisabled] = useState(false)
   const [cardsGotten, setCardsGotten] = useState(false)
 
@@ -35,7 +33,7 @@ export default function App() {
     while (usedNumbers.includes(num)) {
       num = getRandomInt(983);
     }
-    //console.log(`Trying ${num}`);
+    setUsedNumbers([...usedNumbers, num]);
     return num
   }
   
